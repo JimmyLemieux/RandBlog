@@ -1,0 +1,30 @@
+.container-posts {
+    padding-top: 50px;
+    margin-left: 30px;
+    width: 95%;
+}
+.card-body {
+    display: flex;
+}
+
+.card {
+    height: 250px;
+}
+
+.card-img {
+    width: 20px;
+    float: left;
+}
+
+.card-contents {
+    padding-left: 20px;
+    width: 100%;
+}
+
+.card-footer {
+    text-align: right;
+}
+
+.btn {
+    float: right;
+}
