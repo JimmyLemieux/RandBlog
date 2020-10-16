@@ -1,0 +1,15 @@
+
+.blog-container {
+    position: relative;
+    padding-top: 20px;
+    padding-left: 20px;
+}
+
+.short-description {
+    padding-top: 10px;
+}
+
+.lead {
+    font-size: 15px;
+    font-weight: bold;
+}
