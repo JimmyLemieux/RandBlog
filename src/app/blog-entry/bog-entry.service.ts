@@ -15,9 +15,7 @@ export class BogEntryService {
   constructor(private http: HttpClient) {
   }
 
-  getDocuments(): Observable<any> {
-    return this.http.get<any>("http://localhost:14181/getDocuments")
+  getDocuments(): Observable<DocumentModel[]> {
+    return this.http.get<DocumentModel[]>("http://localhost:14181/getDocuments");
   }
-
-
 }
