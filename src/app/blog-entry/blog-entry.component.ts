@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { BogEntryService } from './bog-entry.service';
 @Component({
   selector: 'app-blog-entry',
   templateUrl: './blog-entry.component.html',
@@ -7,10 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BlogEntryComponent implements OnInit {
 
-  numbers = [1,2,3,5,5,5,5,5,5,5,5,5];
-  constructor() { }
-
+  dateCreated: number = 4;
+  numbers = [1];
+  constructor(private blogService: BogEntryService) { }
   ngOnInit() {
+    console.log("called");
+    this.blogService.getDocuments().subscribe(result => {
+      console.log(result);
+    }, (error) => {
+      console.log(error);
+    });
   }
-
 }
