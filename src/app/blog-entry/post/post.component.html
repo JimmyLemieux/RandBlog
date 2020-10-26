@@ -1,20 +1,19 @@
 <div class="container-posts">
   <div class="card">
     <div class="card-header">
-      {{header}}
+      {{Document.data.blogtitle[0].text}}
     </div>
     <div class="card-body">
       <div class="card-img">
-        <img src="../../../favicon.ico"/>
+        <img src={{Document.data.thumbnail.url}}/>
       </div>
       <div class="card-contents">
-        <h5 class="card-title">Special title treatment</h5>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        <a routerLink="/news" class="btn btn-primary">Go somewhere</a>
+        <p class="card-text">{{Document.data.synopsis[0].text}}</p>
+        <a routerLink="/news" class="btn btn-primary">Enter</a>
       </div>
     </div>
     <div class="card-footer text-muted">
-      {{date}} days ago
+      Posted {{Document.last_publication_date | date}}
     </div>
   </div>
 </div>

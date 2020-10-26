@@ -9,14 +9,11 @@ import{ DocumentModel } from './model/documentModel';
 export class BlogEntryComponent implements OnInit {
 
   document: DocumentModel[] = [];
-  dateCreated: number = 4;
-  numbers = [1];
-
   constructor(private blogService: BogEntryService) { }
   ngOnInit() {
     this.blogService.getDocuments().subscribe(result => {
       this.document = result;
-      console.log(this.document[0].type);
+      console.log(this.document[0]);
     }, (error) => {
       console.log(error);
     });

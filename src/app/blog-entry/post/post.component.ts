@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { DocumentModel } from '../model/documentModel';
 
 @Component({
   selector: 'app-post',
@@ -7,8 +8,9 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class PostComponent implements OnInit {
 
-  @Input() header : string;
-  @Input() date : number;
+  @Input() Document: DocumentModel;
+  PostDate: Date = new Date();
+
   constructor() { }
 
   ngOnInit() {
