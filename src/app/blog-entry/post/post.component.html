@@ -1,19 +1,19 @@
 <div class="container-posts">
   <div class="card">
     <div class="card-header">
-      {{Document.data.blogtitle[0].text}}
+      {{_Document.data.blogtitle[0].text}}
     </div>
     <div class="card-body">
       <div class="card-img">
-        <img src={{Document.data.thumbnail.url}}/>
+        <img src={{_Document.data.thumbnail.url}}/>
       </div>
       <div class="card-contents">
-        <p class="card-text">{{Document.data.synopsis[0].text}}</p>
-        <a routerLink="/news" class="btn btn-primary">Enter</a>
+        <p class="card-text">{{_Document.data.synopsis[0].text}}</p>
+        <button class="btn btn-primary" (click)="postEntered()">Enter</button>
       </div>
     </div>
     <div class="card-footer text-muted">
-      Posted {{Document.last_publication_date | date}}
+      Posted {{_Document.last_publication_date | date}}
     </div>
   </div>
 </div>

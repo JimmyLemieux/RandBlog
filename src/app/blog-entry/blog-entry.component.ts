@@ -9,6 +9,7 @@ import{ DocumentModel } from './model/documentModel';
 export class BlogEntryComponent implements OnInit {
 
   document: DocumentModel[] = [];
+  onDocumentEnter: boolean = false;
   constructor(private blogService: BogEntryService) { }
   ngOnInit() {
     this.blogService.getDocuments().subscribe(result => {
@@ -17,5 +18,14 @@ export class BlogEntryComponent implements OnInit {
     }, (error) => {
       console.log(error);
     });
+  }
+
+  postEnter(): void {
+    console.log("Clicked");
+    this.onDocumentEnter = true;
+  }
+
+  exitPost(): void {
+    this.onDocumentEnter = false;
   }
 }

@@ -1,12 +1,17 @@
 <div class="blog-container">
-  <div class="header">
-    <p class="h3">Welcome to the Blog!</p>
+  <div *ngIf="!onDocumentEnter" class="posts-home">
+    <div class="header">
+      <p class="h3">Welcome to the Blog!</p>
+    </div>
+    <div class="short-description">
+      <p class="lead">Below you will find some of the latest blog entries! I hope you enjoy the various posts that I make here!</p>
+    </div>
+    <div *ngFor="let doc of document">
+      <app-post (onPostEntered)="postEnter()" [Document]="doc"></app-post>
+    </div>
   </div>
-  <div class="short-description">
-    <p class="lead">Below you will find some of the latest blog entries! I hope you enjoy the various posts that I make here!</p>
+  <div *ngIf="onDocumentEnter" class="blog-post">
+    <button class="btn btn-primary" (click)="exitPost()">Back</button>
   </div>
 </div>
 
-<div *ngFor="let doc of document">
-  <app-post [Document]="doc"></app-post>
-</div>

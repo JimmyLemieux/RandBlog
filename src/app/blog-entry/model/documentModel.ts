@@ -1,4 +1,5 @@
 export interface DocumentModel {
+    id: string;
     lang: string;
     type: string;
     data: {

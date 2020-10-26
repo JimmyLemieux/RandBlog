@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { DocumentModel } from '../model/documentModel';
 
 @Component({
@@ -8,12 +8,22 @@ import { DocumentModel } from '../model/documentModel';
 })
 export class PostComponent implements OnInit {
 
-  @Input() Document: DocumentModel;
+  _Document: DocumentModel;
+  @Input() set Document(doc: DocumentModel) {
+    this._Document = doc;
+  }
+  @Output() onPostEntered: EventEmitter<any> = new EventEmitter();
   PostDate: Date = new Date();
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  postEntered() {
+    console.log("here");
+    console.log(this._Document.id);
+    this.onPostEntered.emit(null);
   }
 
 }
