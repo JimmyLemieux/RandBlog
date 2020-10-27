@@ -7,9 +7,20 @@
       <p class="lead">Below you will find some of the latest blog entries! I hope you enjoy the various posts that I make here!</p>
     </div>
     <div *ngFor="let doc of document">
-      <app-post (onPostEntered)="postEnter()" [Document]="doc"></app-post>
+      <app-post (onPostEntered)="postEnter($event)" [Document]="doc"></app-post>
     </div>
   </div>
+  <div *ngIf="selectedDocument">
+    <div class="header">
+      <p class="h3">{{selectedDocument.data.blogtitle[0].text}}</p>
+    </div>
+    <div class="post-body">
+      <div *ngFor="let p of selectedDocument.data.blog_body" class="paragraph">
+        <p>{{p.text}}</p>
+      </div>
+    </div>
+  </div>
+
   <div *ngIf="onDocumentEnter" class="blog-post">
     <button class="btn btn-primary" (click)="exitPost()">Back</button>
   </div>

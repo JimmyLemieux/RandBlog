@@ -21,9 +21,7 @@ export class PostComponent implements OnInit {
   }
 
   postEntered() {
-    console.log("here");
-    console.log(this._Document.id);
-    this.onPostEntered.emit(null);
+    this.onPostEntered.emit(this._Document.id);
   }
 
 }
