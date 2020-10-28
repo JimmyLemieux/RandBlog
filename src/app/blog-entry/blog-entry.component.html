@@ -10,19 +10,31 @@
       <app-post (onPostEntered)="postEnter($event)" [Document]="doc"></app-post>
     </div>
   </div>
-  <div *ngIf="selectedDocument">
-    <div class="header">
-      <p class="h3">{{selectedDocument.data.blogtitle[0].text}}</p>
+  <div *ngIf="selectedDocument && onDocumentEnter" class="blog-post">
+    <div class="post-header">
+      <p class="h1">{{selectedDocument.data.blogtitle[0].text}}</p>
+      <small class="text-muted">Ever have that feeling where you’re not sure if you’re awake or dreaming?</small>
+      <div class="back">
+        <button class="btn btn-primary" (click)="exitPost()">Back</button>
+      </div>
     </div>
     <div class="post-body">
-      <div *ngFor="let p of selectedDocument.data.blog_body" class="paragraph">
+      <div *ngFor="let p of selectedDocument.data.blog_body; let i = index" class="blogPargraph">
         <p>{{p.text}}</p>
+        <div class="img-body" *ngIf="i === 1 || i === 0">
+          <img src={{selectedDocument.data.image.url}} class="img-fluid" alt="Responsive image">
+          <small class="text-muted">{{selectedDocument.data.figure_caption}}</small>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="end-post">
+        <small class="text-muted">Thank you for reading!</small>
+      </div>
+      <div class="back">
+        <button class="btn btn-primary" (click)="exitPost()">Back</button>
       </div>
     </div>
   </div>
-
-  <div *ngIf="onDocumentEnter" class="blog-post">
-    <button class="btn btn-primary" (click)="exitPost()">Back</button>
-  </div>
 </div>
-
