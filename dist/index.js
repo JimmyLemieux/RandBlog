@@ -1,6 +1,7 @@
 const express = require('express');
 var Prismic = require('prismic-javascript');
 const http = require('http');
+const ngrok = require('ngrok');
 
 var apiEndpoint = "https://randblog.cdn.prismic.io/api/v2";
 const app = express();
@@ -21,6 +22,8 @@ app.get("/getMovieQuote", (req, res) => {
   
 });
 
-app.listen(port, () => {
+app.listen(port, async () => {
     console.log("Server running on ", port);
+    const url = await ngrok.connect(4200);
+    console.log(url);
 });
