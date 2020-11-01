@@ -1,20 +1,20 @@
 <div class="container-posts">
-  <div class="card">
-    <div class="card-header">
-      {{_Document.data.blogtitle[0].text}}
-    </div>
+  <div (click)= "postEntered()" class="card">
     <div class="card-body">
       <div class="card-img">
         <img src={{_Document.data.thumbnail.url}}/>
       </div>
       <div class="card-contents">
-        <p class="card-text">{{_Document.data.synopsis[0].text}}</p>
-        <button class="btn btn-primary" (click)="postEntered()">Enter</button>
+        <div class="card-meta">
+          <div class="card-date">
+            <p>Published date</p>
+          </div>
+        </div>
+        <div class="card-info">
+          <h3 class="card-title"> This is the title</h3>
+          <p class="card-text">{{_Document.data.synopsis[0].text}}</p>
+        </div>
       </div>
     </div>
-    <div class="card-footer text-muted">
-      Posted {{_Document.last_publication_date | date}}
-    </div>
-  </div>
 </div>
 
