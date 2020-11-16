@@ -18,4 +18,8 @@ export class BogEntryService {
   getDocuments(): Observable<DocumentModel[]> {
     return this.http.get<DocumentModel[]>("http://localhost:14181/getDocuments");
   }
+
+  parseDocument(documentObject: DocumentModel): Observable<any> {
+    return this.http.post<any>("http://localhost:14181/parseDocument", documentObject);
+  }
 }

@@ -11,6 +11,7 @@ export class BlogEntryComponent implements OnInit {
   document: DocumentModel[] = [];
   selectedDocument: DocumentModel;
   onDocumentEnter: boolean = false;
+  documentBody: any;
   constructor(private blogService: BogEntryService) { }
   ngOnInit() {
     this.blogService.getDocuments().subscribe(result => {
@@ -21,9 +22,14 @@ export class BlogEntryComponent implements OnInit {
   }
 
   postEnter(id: string): void {
-    console.log("The id " + id);
     this.selectedDocument = this.document.find(o => o.id === id);
     console.log(this.selectedDocument);
+    this.blogService.parseDocument(this.selectedDocument).subscribe(result => {
+      console.log(result);
+      this.documentBody = result.blogBody;
+    }, (error) => {
+      console.log(error);
+    });
     this.onDocumentEnter = true;
   }
 

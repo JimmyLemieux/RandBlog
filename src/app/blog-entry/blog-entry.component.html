@@ -16,12 +16,7 @@
       <small class="text-muted">Ever have that feeling where you’re not sure if you’re awake or dreaming?</small>
     </div>
     <div class="post-body">
-      <div *ngFor="let p of selectedDocument.data.blog_body; let i = index" class="blogPargraph">
-        <p>{{p.text}}</p>
-        <div class="img-body" *ngIf="i === selectedDocument.data.blog_body.length - 1">
-          <img src={{selectedDocument.data.image.url}} class="img-fluid" alt="Responsive image">
-          <small class="text-muted">{{selectedDocument.data.figure_caption}}</small>
-        </div>
+      <div [innerHtml]="documentBody" class="blogPargraph">
       </div>
     </div>
 
