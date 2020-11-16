@@ -13,7 +13,7 @@
   <div *ngIf="selectedDocument && onDocumentEnter" class="blog-post">
     <div class="post-header">
       <p class="h1">{{selectedDocument.data.blogtitle[0].text}}</p>
-      <small class="text-muted">Ever have that feeling where you’re not sure if you’re awake or dreaming?</small>
+      <small class="text-muted">{{selectedDocument.data.synopsis[0].text}}</small>
     </div>
     <div class="post-body">
       <div [innerHtml]="documentBody" class="blogPargraph">
