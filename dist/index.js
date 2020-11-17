@@ -6,6 +6,8 @@ const http = require('http');
 const ngrok = require('ngrok');
 var bodyParser = require('body-parser');
 
+const pkg = require("./package.json");
+
 var apiEndpoint = "https://randblog.cdn.prismic.io/api/v2";
 const app = express();
 const port = 14181;
@@ -40,7 +42,7 @@ var htmlSerializer = function (type, element, content, children) {
       var linkUrl = element.linkTo ? PrismicDOM.Link.url(element.linkTo, module.exports.linkResolver) : null;
       var linkTarget = element.linkTo && element.linkTo.target ? `target="${element.linkTo.target}" rel="noopener"` : '';
       var wrapperClassList = [element.label || '', 'block-img'];
-      var img = `<img class="img-fluid" src="${element.url}" alt="${element.alt || ''}" copyright="${element.copyright || ''}">`;
+      var img = `<img class="img-fluid" style="text-align:center" src="${element.url}" alt="${element.alt || ''}" copyright="${element.copyright || ''}">`;
       return (`
         <p class="${wrapperClassList.join(' ')}">
           ${linkUrl ? `<a ${linkTarget} href="${linkUrl}">${img}</a>` : img}
@@ -91,8 +93,9 @@ app.post("/parseDocument", (req, res) => {
     });
 });
 
-app.get("/getMovieQuote", (req, res) => {
-  
+app.get("/getCurrentVersion", (req, res) => {
+    console.log(pkg.config.app_version);
+    return res.json({"version": pkg.config.app_version});
 });
 
 app.listen(port, async () => {

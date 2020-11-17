@@ -7,8 +7,9 @@
     margin-left: 30px;
     width: 95%;
 }
+
 .card {
-    height: 530px;
+    /* height: 530px; */
     width: 60%;
     margin: auto;
     border-width: 0.2px;
@@ -20,10 +21,11 @@
     flex: 1;
 }
 
-.card-img {
+/* .card-img {
     max-width: 500px;
+    width:auto;
     float: left;
-}
+} */
 
 .card-contents {
     flex-direction: column;

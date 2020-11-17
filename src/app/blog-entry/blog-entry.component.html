@@ -1,10 +1,8 @@
 <div class="blog-container">
   <div *ngIf="!onDocumentEnter" class="posts-home">
     <div class="header">
-      <p class="h3">Welcome to the Blog!</p>
-    </div>
-    <div class="short-description">
-      <p class="lead">Below you will find some of the latest blog entries! I hope you enjoy the various posts that I make here!</p>
+      <p class="h3">The Most Recent Blog Posts</p>
+      <p class="lead">Most recent version as of: {{applicationVersion}}</p>
     </div>
     <div *ngFor="let doc of document">
       <app-post (onPostEntered)="postEnter($event)" [Document]="doc"></app-post>

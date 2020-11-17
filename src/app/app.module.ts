@@ -5,7 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BlogEntryComponent } from './blog-entry/blog-entry.component';
-import { NewsComponent } from './news/news.component';
+import { AboutComponent } from './about/about.component';
 import { FeatsComponent } from './feats/feats.component';
 import { PostComponent } from './blog-entry/post/post.component';
 
@@ -13,7 +13,7 @@ import { PostComponent } from './blog-entry/post/post.component';
   declarations: [
     AppComponent,
     BlogEntryComponent,
-    NewsComponent,
+    AboutComponent,
     FeatsComponent,
     PostComponent
   ],

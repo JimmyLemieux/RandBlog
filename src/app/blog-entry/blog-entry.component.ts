@@ -12,8 +12,15 @@ export class BlogEntryComponent implements OnInit {
   selectedDocument: DocumentModel;
   onDocumentEnter: boolean = false;
   documentBody: any;
+  applicationVersion: string;
   constructor(private blogService: BogEntryService) { }
   ngOnInit() {
+    this.blogService.getAppVersion().subscribe(result => {
+      console.log(result);
+      this.applicationVersion = result.version;
+    });
+
+
     this.blogService.getDocuments().subscribe(result => {
       this.document = result;
     }, (error) => {
