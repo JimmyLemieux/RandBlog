@@ -1,39 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
-
-.container-posts {
-    padding-top: 50px;
-    margin-left: 30px;
-    width: 95%;
+.container {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 20px;
 }
 
 .card {
-    /* height: 530px; */
-    width: 60%;
-    margin: auto;
-    border-width: 0.2px;
-    border-color: rgb(181, 167, 129, 0.5);
-}
-
-.card-body {
-    display: flex;
-    flex: 1;
-}
-
-/* .card-img {
-    max-width: 500px;
-    width:auto;
-    float: left;
-} */
-
-.card-contents {
-    flex-direction: column;
-    flex: 1;
-}
-
-.card-footer {
-    text-align: right;
+    width: 70%;
+    max-width: 80%;
 }
 
 .btn {

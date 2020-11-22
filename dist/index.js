@@ -6,6 +6,8 @@ const http = require('http');
 const ngrok = require('ngrok');
 var bodyParser = require('body-parser');
 
+
+
 const pkg = require("./package.json");
 
 var apiEndpoint = "https://randblog.cdn.prismic.io/api/v2";
@@ -97,6 +99,10 @@ app.get("/getCurrentVersion", (req, res) => {
     console.log(pkg.config.app_version);
     return res.json({"version": pkg.config.app_version});
 });
+
+app.get("/getProfilePic", (req, res) => {
+  return res.sendFile( __dirname + "/assets/" + "unnamed.jpg" );
+})
 
 app.listen(port, async () => {
     console.log("Server running on ", port);
