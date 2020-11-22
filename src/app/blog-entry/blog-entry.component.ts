@@ -30,6 +30,7 @@ export class BlogEntryComponent implements OnInit {
 
   postEnter(id: string): void {
     this.selectedDocument = this.document.find(o => o.id === id);
+    window.scrollTo(0,0);
     console.log(this.selectedDocument);
     this.blogService.parseDocument(this.selectedDocument).subscribe(result => {
       console.log(result);

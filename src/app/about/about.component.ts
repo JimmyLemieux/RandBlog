@@ -11,9 +11,6 @@ export class AboutComponent implements OnInit {
 
 
   ngOnInit() {
-    this.aboutService.getProfileImage().subscribe(result => {
-      console.log(result);
-    })
   }
 
 }
