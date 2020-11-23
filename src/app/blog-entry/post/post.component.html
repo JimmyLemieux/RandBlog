@@ -17,9 +17,12 @@
  -->
  <div class="container">
    <div (click)="postEntered()" class="card">
+    <div class="card-header">
+      {{_Document.data.blogtitle[0].text}}
+      <span style="float:right"><img class="img-fluid" style="width:20px" src="../../../assets/techicon.png" alt="Post Icon"/></span>
+    </div>
     <img class="img-fluid" src={{_Document.data.thumbnail.url}} alt="Card image cap">
     <div class="card-body">
-      <h5 class="card-title">{{_Document.data.blogtitle[0].text}}</h5>
       <p class="card-text">{{_Document.data.synopsis[0].text}}</p>
       <p class="card-text"><small class="text-muted">{{_Document.last_publication_date | date}}</small></p>
     </div>
