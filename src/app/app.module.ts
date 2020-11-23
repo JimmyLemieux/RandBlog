@@ -6,16 +6,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BlogEntryComponent } from './blog-entry/blog-entry.component';
 import { AboutComponent } from './about/about.component';
-import { FeatsComponent } from './feats/feats.component';
 import { PostComponent } from './blog-entry/post/post.component';
+import { ContactComponent } from './contact/contact.component'; 
 
 @NgModule({
   declarations: [
     AppComponent,
     BlogEntryComponent,
     AboutComponent,
-    FeatsComponent,
-    PostComponent
+    PostComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,

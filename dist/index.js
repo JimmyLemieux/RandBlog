@@ -7,7 +7,6 @@ const ngrok = require('ngrok');
 var bodyParser = require('body-parser');
 
 
-
 const pkg = require("./package.json");
 
 var apiEndpoint = "https://randblog.cdn.prismic.io/api/v2";
