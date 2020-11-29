@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { BogEntryService } from './bog-entry.service';
 import{ DocumentModel } from './model/documentModel';
 @Component({
   selector: 'app-blog-entry',
   templateUrl: './blog-entry.component.html',
-  styleUrls: ['./blog-entry.component.css']
+  styleUrls: ['./blog-entry.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class BlogEntryComponent implements OnInit {
 
@@ -42,6 +43,7 @@ export class BlogEntryComponent implements OnInit {
   }
 
   exitPost(): void {
+    window.scrollTo(0, 0);
     this.onDocumentEnter = false;
   }
 }

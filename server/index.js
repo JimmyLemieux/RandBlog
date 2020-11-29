@@ -43,7 +43,7 @@ var htmlSerializer = function (type, element, content, children) {
       var linkUrl = element.linkTo ? PrismicDOM.Link.url(element.linkTo, module.exports.linkResolver) : null;
       var linkTarget = element.linkTo && element.linkTo.target ? `target="${element.linkTo.target}" rel="noopener"` : '';
       var wrapperClassList = [element.label || '', 'block-img'];
-      var img = `<img class="img-fluid" style="text-align:center" src="${element.url}" alt="${element.alt || ''}" copyright="${element.copyright || ''}">`;
+      var img = `<img class="img-fluid" src="${element.url}" alt="${element.alt || ''}" copyright="${element.copyright || ''}"><hr class="my-3"/>`;
       return (`
         <p class="${wrapperClassList.join(' ')}">
           ${linkUrl ? `<a ${linkTarget} href="${linkUrl}">${img}</a>` : img}

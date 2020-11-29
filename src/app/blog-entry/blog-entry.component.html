@@ -5,7 +5,7 @@
       <p class="lead">Most recent version as of: {{applicationVersion}}</p>
     </div>
     <div *ngFor="let doc of document">
-      <app-post (onPostEntered)="postEnter($event)" [Document]="doc"></app-post>
+        <app-post (onPostEntered)="postEnter($event)" [Document]="doc"></app-post>
     </div>
   </div>
   <div *ngIf="selectedDocument && onDocumentEnter" class="blog-post">
@@ -43,7 +43,7 @@
       </script>
       <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
       <div class="back">
-        <button class="btn btn-primary" (click)="exitPost()">Back</button>
+        <button class="btn btn-outline-secondary" (click)="exitPost()">Back To Posts</button>
       </div>
     </div>
   </div>
