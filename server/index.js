@@ -5,6 +5,7 @@ var Elements = PrismicDOM.RichText.Elements;
 const http = require('http');
 const ngrok = require('ngrok');
 var bodyParser = require('body-parser');
+var nodemailer = require('nodemailer');
 
 
 const pkg = require("./package.json");
@@ -102,6 +103,37 @@ app.get("/getCurrentVersion", (req, res) => {
 app.get("/getProfilePic", (req, res) => {
   return res.sendFile( __dirname + "/assets/" + "unnamed.jpg" );
 })
+
+app.post("/sendEmail", (req, res) => {
+  let data = req.body;
+  console.log(data);
+  var transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      user: 'jimmylemieux9@gmail.com',
+      pass: 'Jrrangers123321!!!'
+    }
+  });
+
+  var mailOptions = {
+    from: data.email,
+    to: 'jimmylemieux9@gmail.com',
+    subject: 'MESSAGE FROM BLOG ' + data.name,
+    text: data.text
+  };
+
+  transporter.sendMail(mailOptions, function(err, info) {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log(info.response);
+    }
+    return res.json({"Status": 200});
+  });
+
+  return re
+
+});
 
 app.listen(port, async () => {
     console.log("Server running on ", port);
