@@ -2,6 +2,7 @@ const express = require('express');
 var Prismic = require('prismic-javascript');
 var PrismicDOM = require('prismic-dom');
 var Elements = PrismicDOM.RichText.Elements;
+var fs = require('fs');
 const http = require('http');
 const ngrok = require('ngrok');
 var bodyParser = require('body-parser');
@@ -15,6 +16,7 @@ const app = express();
 const port = 14181;
 
 app.use(bodyParser.json());
+app.use(express.static("RandBlog"));
 
 var linkResolver = function(doc) {
   // Pretty URLs for known types
@@ -118,20 +120,28 @@ app.post("/sendEmail", (req, res) => {
   var mailOptions = {
     from: data.email,
     to: 'jimmylemieux9@gmail.com',
-    subject: 'MESSAGE FROM BLOG ' + data.name,
+    subject: 'Blog Post Notification: ' + data.name,
     text: data.text
   };
 
   transporter.sendMail(mailOptions, function(err, info) {
     if (err) {
       console.log(err);
+      return res.json({"ERROR": 500});
     } else {
       console.log(info.response);
+      return res.json({"OK": 200});
     }
-    return res.json({"Status": 200});
   });
+});
 
-  return re
+app.get("/getIntroduction", (req, res) => {
+  fs.readFile("about.txt", function(err, data) {
+    if(err) {
+      return res.send({"ERROR": 500});
+    }
+    return res.send({"about": data.toString('utf-8')});
+  });
 
 });
 
