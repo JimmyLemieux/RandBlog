@@ -9,8 +9,11 @@ export class AboutComponent implements OnInit {
 
   constructor(private aboutService: AboutService) { }
 
+  aboutIntro: string;
 
   ngOnInit() {
+    this.aboutService.getIntroduction().subscribe(result => {
+      this.aboutIntro = result.about;
+    })
   }
-
 }

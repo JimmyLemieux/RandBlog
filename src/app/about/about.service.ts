@@ -13,4 +13,8 @@ export class AboutService {
   getProfileImage(): Observable<Blob> {
     return this.http.get("http://localhost:14181/getProfilePic", {responseType: "blob"});
   }
+
+  getIntroduction(): Observable<any> {
+    return this.http.get("http://localhost:14181/getIntroduction");
+  }
 }
