@@ -4,15 +4,13 @@
       <img class="img-fluid" src="../../assets/Main.JPG"/>
     </div>
     <div class="about-info">
-      <h2>Hello</h2>
+      <h2>About Me</h2>
       <p [innerHtml]="aboutIntro"></p>
     </div>
     <hr class="my-4">
-    <div class="about-info">
+    <div *ngIf="socialLinks" class="about-info">
       <h2>I want to be famous so follow me!</h2>
       <p [innerHtml]="socialLinks"></p>
     </div>
-    <hr class="my-4">
-    <hr class="my-4">
   </div>
 </div>

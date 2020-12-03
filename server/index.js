@@ -110,7 +110,6 @@ app.get("/getProfilePic", (req, res) => {
 
 app.post("/sendEmail", (req, res) => {
   let data = req.body;
-  console.log(data);
   var transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
@@ -123,7 +122,7 @@ app.post("/sendEmail", (req, res) => {
     from: data.email,
     to: 'jimmylemieux9@gmail.com',
     subject: 'Blog Post Notification: ' + data.name,
-    text: data.text
+    text: data.text + " ------ " + data.email
   };
 
   transporter.sendMail(mailOptions, function(err, info) {
