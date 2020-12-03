@@ -1,8 +1,11 @@
 <div class="container">
   <div class="about-container">
+    <div class="about-image">
+      <img class="img-fluid" src="../../assets/Main.JPG"/>
+    </div>
     <div class="about-info">
       <h2>Hello</h2>
-      <p>{{aboutIntro}}</p>
+      <p [innerHtml]="aboutIntro"></p>
     </div>
     <hr class="my-4">
     <div class="about-info">

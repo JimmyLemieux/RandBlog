@@ -23,3 +23,12 @@
 .my-4 {
     width: 60%;
 }
+
+.about-image {
+    text-align: center;
+}
+
+img {
+    width: 70%;
+    padding-bottom: 40px;
+}

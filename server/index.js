@@ -16,7 +16,7 @@ const app = express();
 const port = 14181;
 
 app.use(bodyParser.json());
-app.use(express.static("RandBlog"));
+// app.use(express.static("RandBlog"));
 
 var linkResolver = function(doc) {
   // Pretty URLs for known types

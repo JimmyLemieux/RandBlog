@@ -1,3 +1,10 @@
-This is some text about me. Welcome to something that is new and exciting!!
-This is going to be the best thing that you have ever "experienced".
-heheheh
+Hi, I'm James!
+
+I am currently studying Computer Science and Mathematics at the University of Guelph. I am currently
+working at <a href="https://system1.com/">System1</a> as a Full Stack Developer using technologies such as Angular, C#, SQL and AWS cloud platform.
+<br>
+<br>
+Since you're already here, you might also be interested in some of the projects I've worked on, or perhaps the things I've <a href="/">rambled</a> about. Perhaps you'd even like to see my resume, who knows?
+<br>
+<br>
+If you'd like to get in touch, you can contact <a href="mailto:jimmylemieux9@gmail.com">jimmylemieux9@gmail.com</a>, or ping me on Discord stem#5746
