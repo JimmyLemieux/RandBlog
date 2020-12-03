@@ -3,6 +3,7 @@ var Prismic = require('prismic-javascript');
 var PrismicDOM = require('prismic-dom');
 var Elements = PrismicDOM.RichText.Elements;
 var fs = require('fs');
+var util = require('util');
 const http = require('http');
 const ngrok = require('ngrok');
 var bodyParser = require('body-parser');
@@ -10,6 +11,7 @@ var nodemailer = require('nodemailer');
 
 
 const pkg = require("./package.json");
+const { json } = require('body-parser');
 
 var apiEndpoint = "https://randblog.cdn.prismic.io/api/v2";
 const app = express();
@@ -135,14 +137,23 @@ app.post("/sendEmail", (req, res) => {
   });
 });
 
+const readFile = util.promisify(fs.readFile);
 app.get("/getIntroduction", (req, res) => {
-  fs.readFile("about.txt", function(err, data) {
-    if(err) {
-      return res.send({"ERROR": 500});
-    }
-    return res.send({"about": data.toString('utf-8')});
-  });
+  let jsonOut = {};
 
+  readFile("about.txt").then(data => {
+      jsonOut['about'] = data.toString('utf-8');
+
+      readFile("social.txt").then(data => {
+        jsonOut["social"] = data.toString('utf-8');
+        return res.send(JSON.stringify(jsonOut));
+      }).catch((err) => {
+        return res.send({"ERROR": 500}); 
+      });
+
+    }).catch((err) => {
+      return res.send({"ERROR": 500});
+  });
 });
 
 app.listen(port, async () => {

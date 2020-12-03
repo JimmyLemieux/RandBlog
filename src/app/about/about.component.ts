@@ -11,9 +11,13 @@ export class AboutComponent implements OnInit {
 
   aboutIntro: string;
 
+  socialLinks: string;
+
   ngOnInit() {
     this.aboutService.getIntroduction().subscribe(result => {
+      console.log(result);
       this.aboutIntro = result.about;
+      this.socialLinks = result.social;
     })
   }
 }
