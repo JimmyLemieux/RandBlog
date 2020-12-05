@@ -9,10 +9,12 @@ import { BlogEntryComponent } from './blog-entry/blog-entry.component';
 import { AboutComponent } from './about/about.component';
 import { PostComponent } from './blog-entry/post/post.component';
 import { ContactComponent } from './contact/contact.component'; 
+import { FilterPipe } from './filter.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
+    FilterPipe,
     BlogEntryComponent,
     AboutComponent,
     PostComponent,

@@ -1,10 +1,21 @@
 <div class="blog-container">
+
   <div *ngIf="!onDocumentEnter" class="posts-home">
+    <div class="filter">
+      <div class="dropdown">
+        <button class="dropbtn">Filter</button>
+        <div class="dropdown-content">
+          <button (click)="selectedTag = 'home'">All</button>
+          <button (click)="selectedTag = 'tech'">Tech</button>
+          <button (click)="selectedTag = 'gaming'" >Gaming</button>
+        </div>
+      </div>
+    </div>
     <div class="header">
       <p class="h3">The Most Recent Blog Posts</p>
       <p class="lead">Most recent version as of: {{applicationVersion}}</p>
     </div>
-    <div *ngFor="let doc of document">
+    <div *ngFor="let doc of document | searchFilter:selectedTag">
         <app-post (onPostEntered)="postEnter($event)" [Document]="doc"></app-post>
     </div>
   </div>
