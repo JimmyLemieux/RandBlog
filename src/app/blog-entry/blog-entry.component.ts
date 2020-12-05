@@ -10,6 +10,7 @@ import{ DocumentModel } from './model/documentModel';
 export class BlogEntryComponent implements OnInit {
 
   document: DocumentModel[] = [];
+  selectedTag: string = 'home';
   selectedDocument: DocumentModel;
   onDocumentEnter: boolean = false;
   documentBody: any;
