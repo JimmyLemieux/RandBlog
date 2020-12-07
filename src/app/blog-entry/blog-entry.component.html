@@ -2,12 +2,13 @@
 
   <div *ngIf="!onDocumentEnter" class="posts-home">
     <div class="filter">
+      <p>Current filter: <span style="color:green">{{selectedTag | uppercase}}</span></p>
       <div class="dropdown">
         <button class="dropbtn">Filter</button>
         <div class="dropdown-content">
-          <button (click)="selectedTag = 'home'">All</button>
-          <button (click)="selectedTag = 'tech'">Tech</button>
-          <button (click)="selectedTag = 'gaming'" >Gaming</button>
+          <a (click)="selectedTag = 'home'">All</a>
+          <a (click)="selectedTag = 'tech'">Technology</a>
+          <a (click)="selectedTag = 'gaming'">Gaming</a>
         </div>
       </div>
     </div>
