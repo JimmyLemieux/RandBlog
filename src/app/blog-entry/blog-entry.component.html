@@ -1,0 +1,39 @@
+<div class="blog-container">
+  <div *ngIf="!onDocumentEnter" class="posts-home">
+    <div class="header">
+      <p class="h3">Archives</p>
+      <p class="lead">Most recent version as of: {{applicationVersion}}</p>
+      <p *ngIf="notLoaded" class="lead">Woah, A vast open space off... nothingness O.O </p>
+    </div>
+    <div class="blog-post-collection">
+      <div class="blog-post-card" *ngFor="let doc of documents | searchFilter:selectedTag">
+          <app-post (onPostEntered)="postEnter($event)" [Document]="doc"></app-post>
+      <hr>
+      </div>
+    </div>
+  </div>
+
+  <!-- This is code for showing the actual post -->
+  <div *ngIf="selectedDocument && onDocumentEnter" class="blog-post">
+    <div class="blog-post-container">
+      <div class="post-header">
+        <p class="h1">{{selectedDocument.Title}}</p>
+      </div>
+      <div class="post-body">
+        <div [innerHtml]="documentBody" class="blog-paragraph">
+        </div>
+      </div>
+  
+      <div class="footer">
+        <div style="padding-bottom: 30px;" class="end-post">
+          <small class="text-muted">THANK YOU FOR READING!!</small>
+        </div>
+        <div id="disqus_thread"></div>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <div class="back">
+          <button class="btn btn-primary" (click)="exitPost()">Back To Posts</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
