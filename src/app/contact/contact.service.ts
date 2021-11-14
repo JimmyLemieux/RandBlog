@@ -10,7 +10,7 @@ import { environment } from '../../environments/environment';
 })
 export class ContactService {
 
-  baseUrl: string = "http://pseudorandomblog.us-east-2.elasticbeanstalk.com"
+  baseUrl = "http://localhost:14181";
   constructor(private http: HttpClient) { 
   }
 

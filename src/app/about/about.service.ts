@@ -11,10 +11,7 @@ export class AboutService {
 
   baseUrl:string = "http://localhost:14181";
   constructor(private http: HttpClient) {
-    if (environment.production) {
-      this.baseUrl = "https://the-rand-blog.herokuapp.com";
-    }
-   }
+  }
 
 
   getProfileImage(): Observable<Blob> {

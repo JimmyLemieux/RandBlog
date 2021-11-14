@@ -15,13 +15,9 @@ import { not } from '@angular/compiler/src/output/output_ast';
 export class BlogEntryService {
 
 
-  baseUrl = "";
+  baseUrl: string;
   constructor(private http: HttpClient) {
-    if (environment.production) {
-      this.baseUrl = "http://pseudorandomblog.us-east-2.elasticbeanstalk.com";
-    } else {
-      this.baseUrl = "http://localhost:14181";
-    }
+    this.baseUrl = "http://localhost:14181";
   }
 
   getDocuments(): Observable<NotionModel[]> {
