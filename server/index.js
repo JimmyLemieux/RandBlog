@@ -157,8 +157,7 @@ app.get('/healthCheck', (req, res) => {
   res.send(200);
 });
 
-app.listen(process.env.port || port, async () => {
-    console.log("Server running on ", port);
+app.listen(process.env.PORT || port, async () => {
 });
 
 // Depricated Code
