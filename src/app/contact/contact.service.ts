@@ -12,6 +12,9 @@ export class ContactService {
 
   baseUrl = "http://localhost:14181";
   constructor(private http: HttpClient) { 
+    if (environment.production) {
+      this.baseUrl = "https://my-madness.vercel.app";
+    }
   }
 
 

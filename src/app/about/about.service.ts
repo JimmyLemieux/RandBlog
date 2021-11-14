@@ -11,6 +11,9 @@ export class AboutService {
 
   baseUrl:string = "http://localhost:14181";
   constructor(private http: HttpClient) {
+    if (environment.production) {
+      this.baseUrl = "https://my-madness.vercel.app";
+    }
   }
 
 

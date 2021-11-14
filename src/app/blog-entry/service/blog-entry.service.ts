@@ -15,9 +15,11 @@ import { not } from '@angular/compiler/src/output/output_ast';
 export class BlogEntryService {
 
 
-  baseUrl: string;
+  baseUrl: string = "http://localhost:14181";
   constructor(private http: HttpClient) {
-    this.baseUrl = "http://localhost:14181";
+    if (environment.production) {
+      this.baseUrl = "https://my-madness.vercel.app";
+    }
   }
 
   getDocuments(): Observable<NotionModel[]> {
