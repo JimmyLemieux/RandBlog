@@ -23,6 +23,7 @@ export class BlogEntryService {
   }
 
   getDocuments(): Observable<NotionModel[]> {
+    console.log(this.baseUrl);
     return this.http.get<NotionModel[]>( this.baseUrl + "/getDocuments");
   }
   
